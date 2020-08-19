@@ -21,8 +21,8 @@ class Form(Widget):
         self.step_cell = config['step_cell']
         self.size_cell = config['size_cell']
         self.info = {}
-        self.window_size_x = x
-        self.window_size_y = int(y / 2)
+        self.window_size_x = int(x / 2)
+        self.window_size_y = y 
         self.speed_anim = config['speed_anim']
         self.predators = []
         self.cells = []
@@ -74,6 +74,7 @@ class Form(Widget):
                   ', Размер: ' + str(i.size[0]) +\
                   ' (Кол-во клеток: ' + str(len(self.cells)) +\
                   ', Кол-во хищников: ' + str(len(self.predators)) + ')'
+            
 
     def mutation_probability(self, canvas_mut, index, value):
         """Вероятность мутации"""
@@ -99,7 +100,7 @@ class Form(Widget):
     def quantity_cell(self, quan):
         """Количество создаваемых изначально клеток"""
         for i in range(quan):
-            i = Cell(self.window_size_x / 2, self.window_size_y + self.window_size_y / 2, self.speed_anim, self.life_cell, self.step_cell, self.size_cell)
+            i = Cell(self.window_size_x / 2, self.window_size_y / 2, self.speed_anim, self.life_cell, self.step_cell, self.size_cell)
             self.add_widget(i)
             self.cells.append(i)
             self.n += 1
@@ -108,6 +109,7 @@ class Form(Widget):
                   ', Размер: ' + str(i.size[0]) +\
                   ' (Кол-во клеток: ' + str(len(self.cells)) +\
                   ', Кол-во хищников: ' + str(len(self.predators)) + ')'
+            
 
 
     def positions_objects(self, object_list):
@@ -124,12 +126,12 @@ class Form(Widget):
         """Количество создаваемых изначально ячеек энергии"""
         for i in range(quan):
             i = Energy(size=(self.size_energy, self.size_energy), pos=(random.randint(
-            self.size_cell, self.window_size_x - self.size_cell), random.randint(self.window_size_y + self.size_cell, self.window_size_y * 2 - self.size_cell)))
+            self.size_cell, self.window_size_x - self.size_cell), random.randint(self.size_cell, self.window_size_y - self.size_cell)))
             self.add_widget(i)
             self.energy_list.append(i)
 
     def cell_mineral_position(self):
-        """Поведение клетки при встрече с минералом"""
+        """Поведение клетки при встрече с трупиком"""
         for cell in self.cells.copy():
             for mineral in self.minerals.copy():
                 if abs(cell.pos[0] - mineral.pos[0]) <= cell.size[0] / 2 and abs(cell.pos[1] - mineral.pos[1]) <= cell.size[0] / 2:
@@ -169,4 +171,3 @@ class Form(Widget):
         self.cell_box_position()
         self.predator_cell_position()
         self.time += 1
-        
