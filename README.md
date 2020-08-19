@@ -1,4 +1,4 @@
-# Lisa_project
+# Evolution_project
 GUI simulator for single-celled organisms.
 
 Python 3.7+
