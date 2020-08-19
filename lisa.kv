@@ -1,0 +1,398 @@
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+#  -*- coding: utf-8 -*-
+
+<RootScreen>:
+    transition: FadeTransition()
+    Screen1:
+    
+
+<Screen1>
+
+
+<Simulation>:
+    name: 'start'
+
+    Label:
+        id: lbl_conf
+        color: [255, 1, 0, 1]
+        pos_hint: {'x': .0, 'y': .8}
+        size_hint: .5, .275
+        text_size: self.size
+        font_size: 25
+        halign: 'center'
+        valign: 'center'
+        padding: (25, 15)
+        line_height: 1.5
+        text: 'Настройка параметров симуляции'
+
+    ScrollView:
+        id: scroll
+        do_scroll_x: False
+        do_scroll_y: True
+        pos_hint: {'x': 0, 'y': .0}
+        size_hint: .50, .12
+
+        GridLayout:
+            cols: 2
+            
+            Switch:
+                id: switch1
+                active: True
+
+            Label:
+                id: lbl_switch1
+                color: [255, 1, 0, 1]
+                text: 'Деление клеток возможно' if switch1.active else 'Деление клеток невозможно'
+
+            Switch:
+                id: switch2
+                active: True
+
+            Label:
+                id: lbl_switch2
+                color: [255, 1, 0, 1]
+                text: 'Cоздание минерала возможно' if switch2.active else 'Cоздание минерала невозможно'
+    
+    Slider:
+        id: slider3
+        pos_hint: {'x': 0, 'y': .12}
+        size_hint: .25, .06
+        min: 0
+        max: 500
+        step: 1
+        orientation: 'horizontal'
+        value: 200
+        value_track: True
+        value_track_color: [1, 0, 0, 1]
+    Slider:
+        id: slider4
+        pos_hint: {'x': 0, 'y': .18}
+        size_hint: .25, .06
+        min: 1
+        max: 20
+        step: 1
+        orientation: 'horizontal'
+        value: 5
+        value_track: True
+        value_track_color: [1, 0, 0, 1]
+    Slider:
+        id: slider5
+        pos_hint: {'x': 0, 'y': .24}
+        size_hint: .25, .06
+        min: 1
+        max: 50
+        step: 1
+        orientation: 'horizontal'
+        value: 1
+        value_track: True
+        value_track_color: [1, 0, 0, 1]
+    Slider:
+        id: slider6
+        pos_hint: {'x': 0, 'y': .30}
+        size_hint: .25, .06
+        min: 1
+        max: 10
+        step: 1
+        orientation: 'horizontal'
+        value: 3
+        value_track: True
+        value_track_color: [1, 0, 0, 1]
+    Slider:
+        id: slider7
+        pos_hint: {'x': 0, 'y': .36}
+        size_hint: .25, .06
+        min: 1
+        max: 10
+        step: 1
+        orientation: 'horizontal'
+        value: 4
+        value_track: True
+        value_track_color: [1, 0, 0, 1]
+    Slider:
+        id: slider8
+        pos_hint: {'x': 0, 'y': .42}
+        size_hint: .25, .06
+        min: 1
+        max: 10
+        step: 1
+        orientation: 'horizontal'
+        value: 1
+        value_track: True
+        value_track_color: [1, 0, 0, 1]
+    Slider:
+        id: slider9
+        pos_hint: {'x': 0, 'y': .48}
+        size_hint: .25, .06
+        min: 10
+        max: 200
+        step: 1
+        orientation: 'horizontal'
+        value: 100
+        value_track: True
+        value_track_color: [1, 0, 0, 1]
+    Slider:
+        id: slider10
+        pos_hint: {'x': 0, 'y': .54}
+        size_hint: .25, .06
+        min: 1
+        max: 50
+        step: 1
+        orientation: 'horizontal'
+        value: 15
+        value_track: True
+        value_track_color: [1, 0, 0, 1]
+    Slider:
+        id: slider11
+        pos_hint: {'x': 0, 'y': .60}
+        size_hint: .25, .06
+        min: 1
+        max: 50
+        step: 1
+        orientation: 'horizontal'
+        value: 10
+        value_track: True
+        value_track_color: [1, 0, 0, 1]
+    Slider:
+        id: slider12
+        pos_hint: {'x': 0, 'y': .66}
+        size_hint: .25, .06
+        min: 0
+        max: 20
+        step: 1
+        orientation: 'horizontal'
+        value: 10
+        value_track: True
+        value_track_color: [1, 0, 0, 1]
+    Slider:
+        id: slider13
+        pos_hint: {'x': 0, 'y': .72}
+        size_hint: .25, .06
+        min: 0
+        max: 10
+        step: 1
+        orientation: 'horizontal'
+        value: 4
+        value_track: True
+        value_track_color: [1, 0, 0, 1]
+    Slider:
+        id: slider14
+        pos_hint: {'x': 0, 'y': .78}
+        size_hint: .25, .06
+        min: 0.1
+        max: 5
+        step: .1
+        orientation: 'horizontal'
+        value: 0.4
+        value_track: True
+        value_track_color: [1, 0, 0, 1]
+
+    Label:
+        id: lbl_conf_3
+        color: [255, 1, 0, 1]
+        pos_hint: {'x': .25, 'y': .12}
+        size_hint: .25, .06
+        text: 'Количество энергетических ячеек: ' + str(slider3.value)
+    Label:
+        id: lbl_conf_4
+        color: [255, 1, 0, 1]
+        pos_hint: {'x': .25, 'y': .18}
+        size_hint: .25, .06
+        text: 'Размер энергетической ячейки: ' + str(slider4.value)
+    Label:
+        id: lbl_conf_5
+        color: [255, 1, 0, 1]
+        pos_hint: {'x': .25, 'y': .24}
+        size_hint: .25, .06
+        text: 'Количество изначальных клеток: ' + str(slider5.value)
+    Label:
+        id: lbl_conf_6
+        color: [255, 1, 0, 1]
+        pos_hint: {'x': .25, 'y': .30}
+        size_hint: .25, .06
+        text: 'Предел мутации запаса энергии клетки: ' + str(slider6.value)
+    Label:
+        id: lbl_conf_7
+        color: [255, 1, 0, 1]
+        pos_hint: {'x': .25, 'y': .36}
+        size_hint: .25, .06
+        text: 'Предел мутации длины шага клетки: ' + str(slider7.value)
+    Label:
+        id: lbl_conf_8
+        color: [255, 1, 0, 1]
+        pos_hint: {'x': .25, 'y': .42}
+        size_hint: .25, .06
+        text: 'Предел мутации размера клетки: ' + str(slider8.value)
+    Label:
+        id: lbl_conf_9
+        color: [255, 1, 0, 1]
+        pos_hint: {'x': .25, 'y': .48}
+        size_hint: .25, .06
+        text: 'Энергетический запас клетки: ' + str(slider9.value)
+    Label:
+        id: lbl_conf_10
+        color: [255, 1, 0, 1]
+        pos_hint: {'x': .25, 'y': .54}
+        size_hint: .25, .06
+        text: 'Максимальная длина шага клетки: ' + str(slider10.value)
+    Label:
+        id: lbl_conf_11
+        color: [255, 1, 0, 1]
+        pos_hint: {'x': .25, 'y': .60}
+        size_hint: .25, .06
+        text: 'Размер клетки: ' + str(slider11.value)
+    Label:
+        id: lbl_conf_12
+        color: [255, 1, 0, 1]
+        pos_hint: {'x': .25, 'y': .66}
+        size_hint: .25, .06
+        text: 'Вероятность не мутировать в хищника: ' + str(slider12.value)
+    Label:
+        id: lbl_conf_13
+        color: [255, 1, 0, 1]
+        pos_hint: {'x': .25, 'y': .72}
+        size_hint: .25, .06
+        text: 'Коэффициент невозможности мутации: ' + str(slider13.value)
+    Label:
+        id: lbl_conf_14
+        color: [255, 1, 0, 1]
+        pos_hint: {'x': .25, 'y': .78}
+        size_hint: .25, .06
+        text: '1 такт за: ' + str(slider14.value) + ' cекунды'   
+    
+    Label:
+        id: lbl
+        color: [255, 1, 0, 1]
+        pos_hint: {'x': .5, 'y': .8}
+        size_hint: .5, .275
+        text_size: self.size
+        font_size: 25
+        halign: 'center'
+        valign: 'center'
+        padding: (25, 15)
+        line_height: 1.5
+
+    Label:
+        id: lbl1
+        color: [255, 1, 0, 1]
+        pos_hint: {'x': .5, 'y': .15}
+        size_hint: .5, .8
+        text_size: self.size
+        font_size: 15
+        halign: 'left'
+        valign: 'bottom'
+        padding: (25, 15)
+        line_height: 1.5
+
+    Label:
+        id: lbl2
+        color: [255, 1, 0, 1]
+        pos_hint: {'x': .5, 'y': .1}
+        size_hint: .5, .05
+        text_size: self.size
+        font_size: 15
+        halign: 'center'
+        valign: 'center'
+        padding: (25, 15)
+        line_height: 1.5
+
+
+    Button:
+        pos_hint: {'x': .5, 'y': 0}
+        size_hint: .125, .1
+        background_color: [0, 1, 0, 1] 
+        text:'START'
+        on_press:
+            info.disabled = False 
+            config.disabled = False 
+            root.inicial_form(speed_anim=slider14.value, canvas_mut=slider13.value, pred_mut=slider12.value, life_cell=slider9.value, step_cell=slider10.value, size_cell=slider11.value, size_cell_mut=slider8.value, step_cell_mut=slider7.value, life_cell_mut=slider6.value, quant_cell=slider5.value, size_energy=slider4.value, quant_energy=slider3.value,
+            division_cell=switch1.active, create_miner=switch2.active)
+            root.start(slider14.value)
+
+    Button:
+        id: stop
+        pos_hint: {'x': .625, 'y': .0}
+        size_hint: .125, .1
+        background_color: [255, 1, 0, 1]
+        text:'STOP'
+        on_press:
+            root.start(False) 
+            root.remove()
+    Button:
+        id: info
+        pos_hint: {'x': .75, 'y': .0}
+        size_hint: .125, .1
+        background_color: [139, 0, 255, 1]
+        text:'INFO'
+        disabled: True
+        on_press: 
+            lbl.text = 'Информация об объектах:'
+            lbl1.text = root.data_line()
+            lbl2.text = 'Количество тактов: ' + root.timer()
+    Button:
+        id: config
+        pos_hint: {'x': .875, 'y': .0}
+        size_hint: .125, .1
+        background_color: [0, 0, 255, 1]
+        text:'CONFIG'
+        disabled: True
+        on_press: 
+            lbl.text = 'Параметры симуляции:'
+            lbl1.text = root.config_line()
+            
+    
+
+<Form>:
+    name: 'form'
+    canvas:
+        Color:
+            rgb: 0, 0, 255
+        Rectangle:
+            pos: self.pos
+            size: self.size[0] / 2, self.size[1]
+        
+            
+                
+            
+
+<Cell>:
+    name: 'cell'
+    canvas:
+        Color:
+            rgb: 0, 128, 0
+        Ellipse:
+            size: self.size
+            pos: self.pos
+            source: 'лист.png'
+            
+
+
+<Energy>:
+    name: 'energy'
+    canvas:
+        Color:
+            rgb: 0, 255, 255
+        Ellipse:
+            size: self.size
+            pos: self.pos
+            
+
+<Predator>:
+    name: 'predator'
+    canvas:
+        Color:
+            rgb: 255, 0, 0
+        Ellipse:
+            size: self.size
+            pos: self.pos
+
+
+<Mineral>:
+    name: 'mineral'
+    canvas:
+        Color:
+            rgb: 165, 165, 165
+        Ellipse:
+            size: self.size
+            pos: self.pos
+            source: 'klyon.png'
+
