@@ -18,11 +18,11 @@ class Objects(Widget):
     def position(self, window_size_x, window_size_y):
         """Параметры движения клетки по холсту"""
 
-        pos = (0,0)
-        while pos[0] <= 0 or pos[1] <= 0 or pos[0] >= window_size_x - self.size[0] or pos[1] >= window_size_x - self.size[0]:
+        pos = (0, 0)
+        while pos[0] <= 0 or pos[1] <= window_size_y or pos[0] >= window_size_x - self.size[0] or pos[1] >= window_size_y * 2 - self.size[1]:
             pos = (self.pos[0] + random.randint(-self.step, self.step),
                         self.pos[1] + random.randint(-self.step, self.step))
-
+        
         self.animacia(pos)
         self.life -= 1
 
@@ -51,6 +51,10 @@ class Predator(Objects):
 
     def animacia(self, pos):
         super(Predator, self).animacia(pos)
+
+
+class Miceliy(Objects):
+    pass
 
 
 class Food(Widget):

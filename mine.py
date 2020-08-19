@@ -9,6 +9,8 @@ from kivy.clock import Clock
 class RootScreen(ScreenManager):
     pass
 
+class ScreenConf(Screen):
+    pass
 
 class Screen1(Screen):
     def __init__(self, **kwargs):
@@ -21,10 +23,11 @@ class Simulation(FloatLayout):
 
     def __init__(self, **kwargs):
         super(Simulation, self).__init__(**kwargs)
-        Window.size = (1200, 600)
+        Window.size = (1080, 2340)
 
     def inicial_form(self, **kwargs):
         """Инициализация объекта Form"""
+        # self.clear_widgets()
         self.form = Form(kwargs, Window.width, Window.height)
         self.add_widget(self.form)
 
@@ -64,12 +67,11 @@ class Simulation(FloatLayout):
 
     def timer(self):
         return str(self.form.time)
-        # print(self.str_time)
 
     def start(self, speed):
         """Запуск холста и скорости вреиени"""
         Clock.schedule_interval(self.form.update, speed)
-
+        
 
 class LisaApp(App):
     """Запуск приложения"""
